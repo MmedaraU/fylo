@@ -2,23 +2,58 @@
 
 /*
   ========================================
-  Custom styles
+  General styles
   ========================================
 */
 :root {
   font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 main {
-  height: 100vh;
   width: 100vw;
   max-width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 4rem auto;
-  grid-template-areas: "header" "intro" "features" "find-out-more" "tesimonials" "early-access" "footer";
+  grid-template-areas: "header" "intro" "features" "find-out-more" "testimonials" "early-access" "footer";
+  color: #f0f0f0;
+  background: #181833;
+  overflow: hidden;
 }
 
+section, div {
+  padding: 20px;
+}
+section svg {
+  width: 100%;
+  height: 100%;
+}
+p {
+  line-height: 1.35rem;
+  word-spacing: 0.2rem;
+}
+.banner, .features {
+  text-align: center;
+}
+button, .early-access input {
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid black;
+  margin: 10px;
+}
+button {
+  background: #09cfe9;
+  background: #045a74;
+  background: linear-gradient(to right, #09cfe9, #045a74);
+}
 /*
   ========================================
   Header
@@ -29,17 +64,177 @@ header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
+  background: #181828;
 }
 
-header > *, header span * {
+header *, header span * {
+  display: inline;
+}
+header li {
   display: inline-block;
 }
+header span {
+  width: 500px;
+}
 
-svg {
+.logo {
+  line-height: 3rem;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Lucida Handwriting", Arial, Tahoma, serif;
+}
+header svg {
   height: 50px;
   width: 50px;
 }
 
 .main-nav li {
   margin: 15px;
+  list-style-type: none;
+}
+
+/*
+  ========================================
+  Banner
+  ========================================
+*/
+
+.banner {
+  grid-area: intro;
+  height: 100vh;
+}
+
+.banner div {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.banner svg {
+  width: 100%;
+  height:100%;
+}
+
+.banner div:nth-of-type(2){
+  flex-direction: column;
+}
+
+/*
+  ========================================
+  Features
+  ========================================
+*/
+.features {
+  grid-area: features;
+}
+.features > div {
+  display: flex;
+  justify-content: space-around;
+}
+.feature-content {
+  width: 33%;
+}
+
+/*
+  ========================================
+  More on Fylo
+  ========================================
+*/
+
+.more-on-fylo {
+  grid-area: find-out-more;
+  display: flex;
+  background: #181828;
+}
+
+.more-on-fylo > div {
+  flex: 1 1 0px;
+}
+
+/*
+  ========================================
+  Testimonials
+  ========================================
+*/
+
+.testimonials {
+  background: #181833;
+  display: flex;
+  justify-content: space-between;
+}
+
+.testimonials > div {
+  background: #022029;
+  background: #181828;
+  flex: 1 1 0px;
+  margin: 22px;
+}
+
+.testimonials img {
+  height: 50px;
+  shape-outside: circle();
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.image-container {
+  display: flex;
+}
+
+.image-container span {
+  display: block;
+}
+
+/*
+  ========================================
+  Early Access
+  ========================================
+*/
+
+.early-access {
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+  text-align: center;
+}
+.early-access input {
+  width: 400px;
+}
+
+/*
+  ========================================
+  Footer
+  ========================================
+*/
+
+footer {
+  background: #181828;
+  display: flex;
+  padding-top: 200px;
+}
+
+footer > div {
+  flex: 1 1 0px;
+}
+
+.footer-nav {
+  column-count: 2;
+}
+
+.footer-nav li {
+  margin-top: 15px;
+  list-style-type: none;
+}
+
+/*
+  ========================================
+  Media Queries
+  ========================================
+*/
+@media screen and (max-width:960px) {
+  .feature-content {
+    width: 85%;
+  }
 }
